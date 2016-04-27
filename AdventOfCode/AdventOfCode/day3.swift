@@ -61,3 +61,23 @@ func day3Part1() -> Int {
     
     return placesVisited.count
 }
+
+func day3Part2() -> Int {
+    var santaLocation = Point(x: 0, y: 0)
+    var robotLocation = Point(x: 0, y: 0)
+    var placesVisited = Set<Point>([santaLocation])
+    
+    let allDirections = directions()
+    
+    for i in 1...allDirections.count {
+        if i % 2 == 0 {
+            robotLocation = robotLocation.move(allDirections[i-1])
+            placesVisited.insert(robotLocation)
+        } else {
+            santaLocation = santaLocation.move(allDirections[i-1])
+            placesVisited.insert(santaLocation)
+        }
+    }
+    
+    return placesVisited.count
+}
