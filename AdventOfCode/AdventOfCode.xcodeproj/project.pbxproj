@@ -14,6 +14,8 @@
 		14FA93891CD14DA5002076F1 /* day3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA93881CD14DA5002076F1 /* day3.swift */; };
 		14FA938B1CD14E13002076F1 /* day3_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA938A1CD14E02002076F1 /* day3_input.txt */; };
 		14FA938D1CD15B17002076F1 /* day4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA938C1CD15B17002076F1 /* day4.swift */; };
+		14FA93901CD16948002076F1 /* day5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA938F1CD16948002076F1 /* day5.swift */; };
+		14FA93921CD16A0C002076F1 /* day5_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA93911CD169E3002076F1 /* day5_input.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				14FA93921CD16A0C002076F1 /* day5_input.txt in CopyFiles */,
 				14FA938B1CD14E13002076F1 /* day3_input.txt in CopyFiles */,
 				14F820FE1CD11E7F004266C3 /* day2_input.txt in CopyFiles */,
 			);
@@ -49,6 +52,8 @@
 		14FA938A1CD14E02002076F1 /* day3_input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day3_input.txt; sourceTree = "<group>"; };
 		14FA938C1CD15B17002076F1 /* day4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day4.swift; sourceTree = "<group>"; };
 		14FA938E1CD1621B002076F1 /* AdventOfCode-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdventOfCode-Bridging-Header.h"; sourceTree = "<group>"; };
+		14FA938F1CD16948002076F1 /* day5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day5.swift; sourceTree = "<group>"; };
+		14FA93911CD169E3002076F1 /* day5_input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day5_input.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,8 @@
 				14FA93881CD14DA5002076F1 /* day3.swift */,
 				14FA938A1CD14E02002076F1 /* day3_input.txt */,
 				14FA938C1CD15B17002076F1 /* day4.swift */,
+				14FA938F1CD16948002076F1 /* day5.swift */,
+				14FA93911CD169E3002076F1 /* day5_input.txt */,
 			);
 			path = AdventOfCode;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 				14F820FA1CD11C35004266C3 /* day2.swift in Sources */,
 				14FA93891CD14DA5002076F1 /* day3.swift in Sources */,
 				14FA938D1CD15B17002076F1 /* day4.swift in Sources */,
+				14FA93901CD16948002076F1 /* day5.swift in Sources */,
 				146F5FB61CD1178A006AE251 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
