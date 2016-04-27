@@ -35,6 +35,29 @@ extension String {
         return numberOfDoubleLetters > 0
     }
     
+    func isNiceString2() -> Bool {
+        var numberOfNonOverlappingRepeatingPairs = 0
+        var numberOfGappedRepeatingLetters = 0
+        
+        for i in 0..<self.characters.count-2 {
+            let pair = String(self[self.startIndex.advancedBy(i)...self.startIndex.advancedBy(i+1)])
+            let remaining = String(self[self.startIndex.advancedBy(i+2)...self.endIndex.predecessor()])
+            
+            if remaining.containsString(pair) {
+                numberOfNonOverlappingRepeatingPairs += 1
+            }
+            
+            let curChar = String(self[self.startIndex.advancedBy(i)])
+            let adjacentChar = String(self[self.startIndex.advancedBy(i+2)])
+            
+            if curChar == adjacentChar {
+                numberOfGappedRepeatingLetters+=1
+            }
+        }
+        
+        return numberOfGappedRepeatingLetters > 0 &&  numberOfNonOverlappingRepeatingPairs > 0
+    }
+    
 }
 
 extension Character {
@@ -53,4 +76,8 @@ func strings() -> [String] {
 
 func day5Part1() -> Int {
     return strings().filter { $0.isNiceString() }.count
+}
+
+func day5Part2() -> Int {
+    return strings().filter { $0.isNiceString2() }.count
 }
