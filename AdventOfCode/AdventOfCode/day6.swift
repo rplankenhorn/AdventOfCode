@@ -81,3 +81,27 @@ func day6Part1() -> Int {
     
     return count
 }
+
+func day6Part2() -> UInt {
+    var lights:[[UInt]] = []
+    
+    for _ in 0..<1000 {
+        lights.append(Array(count: 1000, repeatedValue:0))
+    }
+    
+    for instruction in instructions() {
+        for i in instruction.start.x...instruction.end.x {
+            for j in instruction.start.y...instruction.end.y {
+                switch instruction.state {
+                case .On: lights[i][j] += 1
+                case .Off: lights[i][j] = lights[i][j] > 0 ? lights[i][j] - 1 : lights[i][j]
+                case .Toggle: lights[i][j] += 2
+                }
+            }
+        }
+    }
+    
+    let count = lights.map { $0.reduce(0, combine: +) }.reduce(0, combine: +)
+    
+    return count
+}
