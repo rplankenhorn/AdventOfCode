@@ -20,10 +20,29 @@ func commands() -> [String] {
 }
 
 func day7Part1() -> CommandValue {
+    registers = [:]
+    values = [:]
+    
     for command in commands() {
         let tokens = command.componentsSeparatedByString(" -> ")
         registers[tokens.last!] = tokens.first!.componentsSeparatedByString(" ")
     }
+    
+    return calculate("a")
+}
+
+func day7Part2() -> CommandValue {
+    let signalA = day7Part1()
+    
+    registers = [:]
+    values = [:]
+    
+    for command in commands() {
+        let tokens = command.componentsSeparatedByString(" -> ")
+        registers[tokens.last!] = tokens.first!.componentsSeparatedByString(" ")
+    }
+    
+    registers["b"] = [String(signalA)]
     
     return calculate("a")
 }
