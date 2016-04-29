@@ -14,9 +14,7 @@ var registers: [String:[String]] = [:]
 var values:[String:CommandValue] = [:]
 
 func commands() -> [String] {
-    let path = NSBundle.mainBundle().pathForResource("day7_input", ofType: "txt")
-    let text = try? NSString(contentsOfFile: path! as String, encoding: NSUTF8StringEncoding)
-    return text!.componentsSeparatedByString("\n")
+    return readInputFile("day7_input")!.componentsSeparatedByString("\n")
 }
 
 func day7Part1() -> CommandValue {

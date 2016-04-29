@@ -53,9 +53,7 @@ struct Instruction {
 }
 
 func instructions() -> [Instruction] {
-    let path = NSBundle.mainBundle().pathForResource("day6_input", ofType: "txt")
-    let text = try? NSString(contentsOfFile: path! as String, encoding: NSUTF8StringEncoding)
-    return text!.componentsSeparatedByString("\n").map { Instruction(line: $0) }
+    return readInputFile("day6_input")!.componentsSeparatedByString("\n").map { Instruction(line: $0) }
 }
 
 func day6Part1() -> Int {

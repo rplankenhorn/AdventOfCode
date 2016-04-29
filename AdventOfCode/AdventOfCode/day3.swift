@@ -45,9 +45,7 @@ func ==(lhs: Point, rhs: Point) -> Bool {
 }
 
 func directions() -> [Direction] {
-    let path = NSBundle.mainBundle().pathForResource("day3_input", ofType: "txt")
-    let text = try? NSString(contentsOfFile: path! as String, encoding: NSUTF8StringEncoding)
-    return String(text!).characters.map { Direction(rawValue: String($0))! }
+    return readInputFile("day3_input")!.characters.map { Direction(rawValue: String($0))! }
 }
 
 func day3Part1() -> Int {

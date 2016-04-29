@@ -20,6 +20,7 @@
 		14FA93961CD24FCA002076F1 /* day6_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA93951CD24FB3002076F1 /* day6_input.txt */; };
 		14FA93981CD264A2002076F1 /* day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA93971CD264A2002076F1 /* day7.swift */; };
 		14FA939A1CD2660E002076F1 /* day7_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA93991CD265F7002076F1 /* day7_input.txt */; };
+		14FA93A01CD3BF15002076F1 /* day1_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA939F1CD3BEAE002076F1 /* day1_input.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				14FA93A01CD3BF15002076F1 /* day1_input.txt in CopyFiles */,
 				14FA939A1CD2660E002076F1 /* day7_input.txt in CopyFiles */,
 				14FA93961CD24FCA002076F1 /* day6_input.txt in CopyFiles */,
 				14FA93921CD16A0C002076F1 /* day5_input.txt in CopyFiles */,
@@ -64,6 +66,7 @@
 		14FA93951CD24FB3002076F1 /* day6_input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day6_input.txt; sourceTree = "<group>"; };
 		14FA93971CD264A2002076F1 /* day7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day7.swift; sourceTree = "<group>"; };
 		14FA93991CD265F7002076F1 /* day7_input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day7_input.txt; sourceTree = "<group>"; };
+		14FA939F1CD3BEAE002076F1 /* day1_input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day1_input.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,7 @@
 				14FA938E1CD1621B002076F1 /* AdventOfCode-Bridging-Header.h */,
 				146F5FB51CD1178A006AE251 /* main.swift */,
 				14F820F71CD117D8004266C3 /* day1.swift */,
+				14FA939F1CD3BEAE002076F1 /* day1_input.txt */,
 				14F820F91CD11C35004266C3 /* day2.swift */,
 				14F820FB1CD11CEF004266C3 /* day2_input.txt */,
 				14FA93881CD14DA5002076F1 /* day3.swift */,

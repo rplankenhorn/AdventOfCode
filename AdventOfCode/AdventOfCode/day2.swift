@@ -39,9 +39,7 @@ struct Box {
 }
 
 func boxes() -> [Box] {
-    let path = NSBundle.mainBundle().pathForResource("day2_input", ofType: "txt")
-    let text = try? NSString(contentsOfFile: path! as String, encoding: NSUTF8StringEncoding)
-    return text!.componentsSeparatedByString("\n").map { Box(line: $0) }
+    return readInputFile("day2_input")!.componentsSeparatedByString("\n").map { Box(line: $0) }
 }
 
 func day2Part1() -> Int {

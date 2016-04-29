@@ -69,9 +69,7 @@ extension Character {
 }
 
 func strings() -> [String] {
-    let path = NSBundle.mainBundle().pathForResource("day5_input", ofType: "txt")
-    let text = try? NSString(contentsOfFile: path! as String, encoding: NSUTF8StringEncoding)
-    return text!.componentsSeparatedByString("\n")
+    return readInputFile("day5_input")!.componentsSeparatedByString("\n")
 }
 
 func day5Part1() -> Int {
