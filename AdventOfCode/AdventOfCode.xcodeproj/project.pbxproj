@@ -18,6 +18,8 @@
 		14FA93921CD16A0C002076F1 /* day5_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA93911CD169E3002076F1 /* day5_input.txt */; };
 		14FA93941CD24F36002076F1 /* day6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA93931CD24F36002076F1 /* day6.swift */; };
 		14FA93961CD24FCA002076F1 /* day6_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA93951CD24FB3002076F1 /* day6_input.txt */; };
+		14FA93981CD264A2002076F1 /* day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FA93971CD264A2002076F1 /* day7.swift */; };
+		14FA939A1CD2660E002076F1 /* day7_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA93991CD265F7002076F1 /* day7_input.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				14FA939A1CD2660E002076F1 /* day7_input.txt in CopyFiles */,
 				14FA93961CD24FCA002076F1 /* day6_input.txt in CopyFiles */,
 				14FA93921CD16A0C002076F1 /* day5_input.txt in CopyFiles */,
 				14FA938B1CD14E13002076F1 /* day3_input.txt in CopyFiles */,
@@ -59,6 +62,8 @@
 		14FA93911CD169E3002076F1 /* day5_input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day5_input.txt; sourceTree = "<group>"; };
 		14FA93931CD24F36002076F1 /* day6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day6.swift; sourceTree = "<group>"; };
 		14FA93951CD24FB3002076F1 /* day6_input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day6_input.txt; sourceTree = "<group>"; };
+		14FA93971CD264A2002076F1 /* day7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day7.swift; sourceTree = "<group>"; };
+		14FA93991CD265F7002076F1 /* day7_input.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day7_input.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,8 @@
 				14FA93911CD169E3002076F1 /* day5_input.txt */,
 				14FA93931CD24F36002076F1 /* day6.swift */,
 				14FA93951CD24FB3002076F1 /* day6_input.txt */,
+				14FA93971CD264A2002076F1 /* day7.swift */,
+				14FA93991CD265F7002076F1 /* day7_input.txt */,
 			);
 			path = AdventOfCode;
 			sourceTree = "<group>";
@@ -167,6 +174,7 @@
 			files = (
 				14F820F81CD117D8004266C3 /* day1.swift in Sources */,
 				14F820FA1CD11C35004266C3 /* day2.swift in Sources */,
+				14FA93981CD264A2002076F1 /* day7.swift in Sources */,
 				14FA93891CD14DA5002076F1 /* day3.swift in Sources */,
 				14FA93941CD24F36002076F1 /* day6.swift in Sources */,
 				14FA938D1CD15B17002076F1 /* day4.swift in Sources */,
