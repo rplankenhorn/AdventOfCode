@@ -10,8 +10,26 @@ import Foundation
 
 extension String {
     
+    func numberOfCharactersInEncodedString() -> UInt {
+        var count:UInt = 2
+        
+        for c in self.characters {
+            print(c)
+            
+            if c == "\"" {
+                count += 2
+            } else if c == "\\" {
+                count += 2
+            } else {
+                count += 1
+            }
+        }
+        
+        return count
+    }
+    
     func numberOfCharactersInCode() -> UInt {
-        return UInt(self.stringByReplacingOccurrencesOfString("\"", withString: "aa").characters.count) + 2
+        return UInt(self.stringByReplacingOccurrencesOfString("\"", withString: "aa").characters.count)
     }
     
     func numberOfCharactersInMemory() -> UInt {
@@ -28,10 +46,19 @@ extension String {
 }
 
 func day8Part1() -> UInt {
-    let strings = readInputFile("day8_input")!.componentsSeparatedByString("\n").map { String(String($0.characters.dropFirst()).characters.dropLast()) }
+    let strings = readInputFile("day8_input")!.componentsSeparatedByString("\n")
     
     let numberOfCharactersInCode = strings.reduce(0, combine: {$0 + $1.numberOfCharactersInCode() })
     let numberOfCharactersInMemory = strings.reduce(0, combine: {$0 + $1.numberOfCharactersInMemory() })
     
     return numberOfCharactersInCode - numberOfCharactersInMemory
+}
+
+func day8Part2() -> UInt {
+    let strings = readInputFile("day8_input")!.componentsSeparatedByString("\n")
+    
+    let numberOfCharactersInEncodedString = strings.reduce(0, combine: {$0 + $1.numberOfCharactersInEncodedString() })
+    let numberOfCharactersInCode = strings.reduce(0, combine: {$0 + UInt($1.characters.count) })
+    
+    return numberOfCharactersInEncodedString - numberOfCharactersInCode
 }
