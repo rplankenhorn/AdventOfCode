@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		141FAE4F1CD8EBB600AE03C7 /* day9_input.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 14FA93A11CD80500002076F1 /* day9_input.txt */; };
 		141FAE511CD901CD00AE03C7 /* day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141FAE501CD901CD00AE03C7 /* day10.swift */; };
+		141FAE531CD92F6600AE03C7 /* day11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141FAE521CD92F6600AE03C7 /* day11.swift */; };
 		146F5FB61CD1178A006AE251 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146F5FB51CD1178A006AE251 /* main.swift */; };
 		14F820F81CD117D8004266C3 /* day1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F820F71CD117D8004266C3 /* day1.swift */; };
 		14F820FA1CD11C35004266C3 /* day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F820F91CD11C35004266C3 /* day2.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		141FAE501CD901CD00AE03C7 /* day10.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day10.swift; sourceTree = "<group>"; };
+		141FAE521CD92F6600AE03C7 /* day11.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day11.swift; sourceTree = "<group>"; };
 		146F5FB21CD1178A006AE251 /* AdventOfCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdventOfCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		146F5FB51CD1178A006AE251 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		14F820F71CD117D8004266C3 /* day1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day1.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				14FA93A21CD80511002076F1 /* day9.swift */,
 				14FA93A11CD80500002076F1 /* day9_input.txt */,
 				141FAE501CD901CD00AE03C7 /* day10.swift */,
+				141FAE521CD92F6600AE03C7 /* day11.swift */,
 			);
 			path = AdventOfCode;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				14F820F81CD117D8004266C3 /* day1.swift in Sources */,
 				14F820FA1CD11C35004266C3 /* day2.swift in Sources */,
+				141FAE531CD92F6600AE03C7 /* day11.swift in Sources */,
 				14FA93981CD264A2002076F1 /* day7.swift in Sources */,
 				14FA93891CD14DA5002076F1 /* day3.swift in Sources */,
 				14FA93941CD24F36002076F1 /* day6.swift in Sources */,
