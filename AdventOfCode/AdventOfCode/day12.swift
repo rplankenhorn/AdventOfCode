@@ -8,20 +8,55 @@
 
 import Foundation
 
+private func readJSONInput() -> [String:AnyObject] {
+    let data = readInputFile("day12_input")!.dataUsingEncoding(NSUTF8StringEncoding)!
+    return try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! [String:AnyObject]
+}
+
 func day12Part1() -> Int {
-    var input = readInputFile("day12_input")!
+    return countDictionary(readJSONInput(), countRed: true)
+}
+
+func day12Part2() -> Int {
+    return countDictionary(readJSONInput(), countRed: false)
+}
+
+func countDictionary(dict:[String:AnyObject], countRed:Bool) -> Int {
+    var count = 0
     
-    let regex = try! NSRegularExpression(pattern: "[\\{\\}\"\\[\\]\\:,]", options: NSRegularExpressionOptions())
-    
-    input = regex.stringByReplacingMatchesInString(input, options: NSMatchingOptions(), range: NSRange(location: 0, length: input.characters.count), withTemplate: " ")
-    
-    let tokens = input.componentsSeparatedByString(" ").flatMap { element -> Int? in
-        if let number = Int(element) {
-            return number
-        } else {
-            return nil
+    for (_, value) in dict {
+        if let string = value as? String where countRed == false && string.caseInsensitiveCompare("red") == .OrderedSame {
+            return 0
         }
+        
+        count += countValue(value, countRed: countRed)
     }
     
-    return tokens.reduce(0, combine:+)
+    return count
+}
+
+func countArray(array:[AnyObject], countRed:Bool) -> Int {
+    var count = 0
+    
+    for object in array {
+        count += countValue(object, countRed: countRed)
+    }
+    
+    return count
+}
+
+func countValue(value:AnyObject, countRed:Bool) -> Int {
+    var count = 0
+    
+    if let array = value as? [AnyObject] {
+        count += countArray(array, countRed: countRed)
+    } else if let dict = value as? [String:AnyObject] {
+        count += countDictionary(dict, countRed: countRed)
+    } else if let number = value as? NSNumber {
+        count += number.integerValue
+    } else if let _ = value as? String {
+        return 0
+    }
+    
+    return count
 }
