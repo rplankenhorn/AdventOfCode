@@ -8,7 +8,7 @@
 
 import Foundation
 
-func day13Part1() -> Int {    
+private func getPeopleAndHappiness() -> (Set<String>, [String:[String:Int]]) {
     let input = readInputFile("day13_input")!.componentsSeparatedByString("\n").map { $0.stringByReplacingOccurrencesOfString(".", withString: "") }
     
     var people = Set<String>()
@@ -25,6 +25,10 @@ func day13Part1() -> Int {
         happiness[person]![adjacentPerson] = value
     }
     
+    return (people, happiness)
+}
+
+private func calculateMaxHappiness(people:Set<String>, happiness:[String:[String:Int]]) -> Int {
     var maxHappiness = 0
     
     for permutation in permutations(Array(people)) {
@@ -53,4 +57,32 @@ func day13Part1() -> Int {
     }
     
     return maxHappiness
+}
+
+func day13Part1() -> Int {    
+    let peopleAndHappiness = getPeopleAndHappiness()
+    
+    let people = peopleAndHappiness.0
+    let happiness = peopleAndHappiness.1
+    
+    return calculateMaxHappiness(people, happiness: happiness)
+}
+
+func day13Part2() -> Int {
+    let peopleAndHappiness = getPeopleAndHappiness()
+    
+    var people = peopleAndHappiness.0
+    var happiness = peopleAndHappiness.1
+    
+    let myself = "Myself"
+    happiness[myself] = [:]
+    
+    for person in people {
+        happiness[myself]![person] = 0
+        happiness[person]![myself] = 0
+    }
+    
+    people.insert(myself)
+    
+    return calculateMaxHappiness(people, happiness: happiness)
 }
