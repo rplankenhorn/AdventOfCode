@@ -13,6 +13,33 @@ func readInputFile(filename:String) -> String? {
     return try? String(NSString(contentsOfFile: path! as String, encoding: NSUTF8StringEncoding))
 }
 
+// Pulled from http://stackoverflow.com/questions/34968470/calculate-all-permutations-of-a-string-in-swift
+func permutations<C: CollectionType>(items: C) -> [[C.Generator.Element]] {
+    var scratch = Array(items) // This is a scratch space for Heap's algorithm
+    var result: [[C.Generator.Element]] = [] // This will accumulate our result
+    
+    // Heap's algorithm
+    func heap(n: Int) {
+        if n == 1 {
+            result.append(scratch)
+            return
+        }
+        
+        for i in 0..<n-1 {
+            heap(n-1)
+            let j = (n%2 == 1) ? 0 : i
+            swap(&scratch[j], &scratch[n-1])
+        }
+        heap(n-1)
+    }
+    
+    // Let's get started
+    heap(scratch.count)
+    
+    // And return the result we built up
+    return result
+}
+
 print("Day 1 Part 1: \(day1Part1())")
 print("Day 1 Part 2: \(day1Part2())")
 print("Day 2 Part 1: \(day2Part1())")
@@ -37,3 +64,4 @@ print("Day 11 Part 1: \(day11Part1())")
 print("Day 11 Part 2: \(day11Part2())")
 print("Day 12 Part 1: \(day12Part1())")
 print("Day 12 Part 2: \(day12Part2())")
+print("Day 13 Part 1: \(day13Part1())")
