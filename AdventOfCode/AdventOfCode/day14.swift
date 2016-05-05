@@ -38,6 +38,18 @@ func day14Part1() -> Int {
 }
 
 func day14Part2() -> Int {
-    let input = readInputFile("day14_input")!.componentsSeparatedByString("\n").map { Reindeer(line: $0) }
-    return input.map { $0.distanceTraveled(2503) }.reduce(0, combine: { Swift.max($0, $1) })
+    var input = readInputFile("day14_input")!.componentsSeparatedByString("\n").map { Reindeer(line: $0) }
+    
+    for t in 1...2503 {
+        let maxDistance = input.map { $0.distanceTraveled(t) }.reduce(0, combine: { Swift.max($0, $1) })
+        input = input.map { reindeer in
+            var reindeerCopy = reindeer
+            if reindeerCopy.distanceTraveled(t) == maxDistance {
+                reindeerCopy.points += 1
+            }
+            return reindeerCopy
+        }
+    }
+    
+    return input.reduce(0, combine: { Swift.max($0, $1.points) })
 }
