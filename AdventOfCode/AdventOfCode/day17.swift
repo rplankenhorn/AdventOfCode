@@ -38,7 +38,13 @@ private func combinations(withBase: [Int], _ andOthers: [Int], _ toTotal: Int) -
 
 
 func day17Part1() -> Int {
-    let input = readInputFile("day17_input")!.componentsSeparatedByString("\n").map { Int($0)! }
+    let input = readInputFile("day17_input")!.componentsSeparatedByString("\n").map { Int($0)! }.sort(>)
     return combinations([], input, 150).count
 }
 
+func day17Part2() -> Int {
+    let input = readInputFile("day17_input")!.componentsSeparatedByString("\n").map { Int($0)! }.sort(>)
+    let combos = combinations([], input, 150)
+    let minimumCount = combos.reduce(Int.max, combine: { Swift.min($0, $1.count) })
+    return combos.filter { $0.count == minimumCount }.count
+}
