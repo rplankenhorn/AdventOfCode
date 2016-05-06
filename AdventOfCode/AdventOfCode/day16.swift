@@ -60,5 +60,22 @@ func day16Part1() -> Int {
     input = input.filter { $0.cars == nil || $0.cars == 2 }
     input = input.filter { $0.perfumes == nil || $0.perfumes == 1 }
     
-    return 0
+    return input.first!.number
+}
+
+func day16Part2() -> Int {
+    var input = readInputFile("day16_input")!.componentsSeparatedByString("\n").map { Sue(line: $0) }
+    
+    input = input.filter { $0.children == nil || $0.children == 3 }
+    input = input.filter { $0.cats == nil || $0.cats > 7 }
+    input = input.filter { $0.samoyeds == nil || $0.samoyeds == 2 }
+    input = input.filter { $0.pomeranians == nil || $0.pomeranians < 3 }
+    input = input.filter { $0.akitas == nil || $0.akitas == 0 }
+    input = input.filter { $0.vizslas == nil || $0.vizslas == 0 }
+    input = input.filter { $0.goldfish == nil || $0.goldfish < 5 }
+    input = input.filter { $0.trees == nil || $0.trees > 3 }
+    input = input.filter { $0.cars == nil || $0.cars == 2 }
+    input = input.filter { $0.perfumes == nil || $0.perfumes == 1 }
+    
+    return input.first!.number
 }
