@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String {
+private extension String {
     
     func numberOfCharactersInEncodedString() -> UInt {
         var count:UInt = 2

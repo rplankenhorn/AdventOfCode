@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Box {
+private struct Box {
     var length:Int = 0
     var width:Int = 0
     var height:Int = 0
@@ -38,7 +38,7 @@ struct Box {
     }
 }
 
-func boxes() -> [Box] {
+private func boxes() -> [Box] {
     return readInputFile("day2_input")!.componentsSeparatedByString("\n").map { Box(line: $0) }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum LightState {
+private enum LightState {
     case On
     case Off
     case Toggle
@@ -24,7 +24,7 @@ extension Point {
     
 }
 
-struct Instruction {
+private struct Instruction {
     var state:LightState
     var start:Point
     var end:Point
@@ -52,7 +52,7 @@ struct Instruction {
     }
 }
 
-func instructions() -> [Instruction] {
+private func instructions() -> [Instruction] {
     return readInputFile("day6_input")!.componentsSeparatedByString("\n").map { Instruction(line: $0) }
 }
 

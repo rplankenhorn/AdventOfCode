@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String {
+private extension String {
     
     func isNiceString() -> Bool {
         if self.containsString("ab") || self.containsString("cd") || self.containsString("pq") || self.containsString("xy") {
@@ -60,7 +60,7 @@ extension String {
     
 }
 
-extension Character {
+private extension Character {
     
     func isVowel() -> Bool {
         return self == "a" || self == "e" || self == "i" || self == "o" || self == "u"
@@ -68,7 +68,7 @@ extension Character {
     
 }
 
-func strings() -> [String] {
+private func strings() -> [String] {
     return readInputFile("day5_input")!.componentsSeparatedByString("\n")
 }
 

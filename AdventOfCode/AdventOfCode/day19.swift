@@ -8,6 +8,19 @@
 
 import Foundation
 
+private extension String {
+    
+    func numberOfOccurrancesOfString(str:String) -> Int {
+        let regex = try! NSRegularExpression(pattern: str, options: [])
+        return regex.matchesInString(self, options: [], range: NSMakeRange(0, self.characters.count)).map { $0.range }.count
+    }
+    
+    func stringByRemovingCharactersWithRegexString(str:String) -> String {
+        let regex = try! NSRegularExpression(pattern: str, options: [])
+        return regex.stringByReplacingMatchesInString(self, options: [], range: NSMakeRange(0, self.characters.count), withTemplate: "")
+    }
+}
+
 private func getReplacementsAndMolcule() -> ([String:Set<String>], String) {
     var input = readInputFile("day19_input")!.componentsSeparatedByString("\n")
     
@@ -48,19 +61,6 @@ func day19Part1() -> Int {
     }
     
     return newMolecules.count
-}
-
-private extension String {
-    
-    func numberOfOccurrancesOfString(str:String) -> Int {
-        let regex = try! NSRegularExpression(pattern: str, options: [])
-        return regex.matchesInString(self, options: [], range: NSMakeRange(0, self.characters.count)).map { $0.range }.count
-    }
-    
-    func stringByRemovingCharactersWithRegexString(str:String) -> String {
-        let regex = try! NSRegularExpression(pattern: str, options: [])
-        return regex.stringByReplacingMatchesInString(self, options: [], range: NSMakeRange(0, self.characters.count), withTemplate: "")
-    }
 }
 
 func day19Part2() -> Int {

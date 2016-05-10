@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Ingredient {
+private struct Ingredient {
     let name:String
     let capacity:Int
     let durability:Int

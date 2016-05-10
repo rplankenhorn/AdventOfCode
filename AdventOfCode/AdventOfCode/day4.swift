@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String  {
+private extension String  {
     var md5: String! {
         let str = self.cStringUsingEncoding(NSUTF8StringEncoding)
         let strLen = CC_LONG(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))

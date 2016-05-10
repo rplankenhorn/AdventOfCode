@@ -44,7 +44,7 @@ func ==(lhs: Point, rhs: Point) -> Bool {
     return lhs.x == rhs.x && lhs.y == rhs.y
 }
 
-func directions() -> [Direction] {
+private func directions() -> [Direction] {
     return readInputFile("day3_input")!.characters.map { Direction(rawValue: String($0))! }
 }
 

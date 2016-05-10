@@ -8,7 +8,7 @@
 
 import Foundation
 
-func nextLookAndSay(ints:[Int]) -> [Int] {
+private func nextLookAndSay(ints:[Int]) -> [Int] {
     if ints.count == 1 {
         return [1, ints.first!]
     }

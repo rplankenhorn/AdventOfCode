@@ -8,7 +8,7 @@
 
 import Foundation
 
-func getPlacesAndDistances() -> (Set<String>, [String:[String:Int]]) {
+private func getPlacesAndDistances() -> (Set<String>, [String:[String:Int]]) {
     let lines = readInputFile("day9_input")!.componentsSeparatedByString("\n")
     
     var places = Set<String>()

@@ -21,7 +21,7 @@ func day12Part2() -> Int {
     return countDictionary(readJSONInput(), countRed: false)
 }
 
-func countDictionary(dict:[String:AnyObject], countRed:Bool) -> Int {
+private func countDictionary(dict:[String:AnyObject], countRed:Bool) -> Int {
     var count = 0
     
     for (_, value) in dict {
@@ -35,7 +35,7 @@ func countDictionary(dict:[String:AnyObject], countRed:Bool) -> Int {
     return count
 }
 
-func countArray(array:[AnyObject], countRed:Bool) -> Int {
+private func countArray(array:[AnyObject], countRed:Bool) -> Int {
     var count = 0
     
     for object in array {
@@ -45,7 +45,7 @@ func countArray(array:[AnyObject], countRed:Bool) -> Int {
     return count
 }
 
-func countValue(value:AnyObject, countRed:Bool) -> Int {
+private func countValue(value:AnyObject, countRed:Bool) -> Int {
     var count = 0
     
     if let array = value as? [AnyObject] {
