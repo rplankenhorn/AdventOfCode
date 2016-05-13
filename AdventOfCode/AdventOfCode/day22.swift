@@ -88,85 +88,101 @@ private struct Boss {
     }
 }
 
+private func battle(decrementWizardHealth:Bool = false) -> Int {
+    var wizard = Wizard()
+    var boss = Boss()
+    var manaSpent = 0
+    
+    var currentEffects:[Spell] = []
+    
+    while wizard.hitPoints > 0 && wizard.manaPoints > 0 {
+        if decrementWizardHealth {
+            wizard.hitPoints -= 1
+        }
+        
+        for i in 0..<currentEffects.count {
+            wizard.applyEffect(currentEffects[i])
+            boss.applyEffect(currentEffects[i])
+            currentEffects[i].numberOfTurns -= 1
+        }
+        
+        if let _ = currentEffects.filter( { $0.numberOfTurns == 0 && $0.name == "Shield" }).first {
+            wizard.armor = 0
+        }
+        
+        currentEffects = currentEffects.filter { $0.numberOfTurns > 0 }
+        
+        // Wizard turn
+        
+        let currentEffectsSet = Set(currentEffects)
+        
+        let possibleSpells:[Spell] = [Spell.magicMissile(), Spell.drain(), Spell.shield(), Spell.poison(), Spell.recharge()].filter { currentEffectsSet.contains($0) == false && $0.cost <= wizard.manaPoints }
+        
+        if possibleSpells.count == 0 {
+            wizard.hitPoints = 0
+            break
+        }
+        
+        let spell = possibleSpells.randomItem()!
+        
+        wizard.manaPoints -= spell.cost
+        
+        if spell.name != "Recharge" && spell.name != "Poison" {
+            wizard.applyEffect(spell)
+            boss.applyEffect(spell)
+        }
+        
+        if spell.numberOfTurns > 0 {
+            currentEffects.append(spell)
+        }
+        
+        manaSpent += spell.cost
+        
+        if boss.hitPoints <= 0 {
+            break
+        }
+        
+        // Boss turn
+        
+        for i in 0..<currentEffects.count {
+            wizard.applyEffect(currentEffects[i])
+            boss.applyEffect(currentEffects[i])
+            currentEffects[i].numberOfTurns -= 1
+        }
+        
+        if boss.hitPoints <= 0 {
+            break
+        }
+        
+        let bossAttack = Swift.max(boss.damage - wizard.armor, 1)
+        
+        wizard.hitPoints -= bossAttack
+        
+        if let _ = currentEffects.filter( { $0.numberOfTurns == 0 && $0.name == "Shield" }).first {
+            wizard.armor = 0
+        }
+        
+        currentEffects = currentEffects.filter { $0.numberOfTurns > 0 }
+    }
+    
+    return wizard.hitPoints > 0 ? manaSpent : Int.max
+}
+
 func day22Part1() -> Int {
     var minimumManaSpent = Int.max
     
     for _ in 1...4000 {
-        var wizard = Wizard()
-        var boss = Boss()
-        var manaSpent = 0
-        
-        var currentEffects:[Spell] = []
-        
-        while wizard.hitPoints > 0 && wizard.manaPoints > 0 {
-            for i in 0..<currentEffects.count {
-                wizard.applyEffect(currentEffects[i])
-                boss.applyEffect(currentEffects[i])
-                currentEffects[i].numberOfTurns -= 1
-            }
-            
-            if let _ = currentEffects.filter( { $0.numberOfTurns == 0 && $0.name == "Shield" }).first {
-                wizard.armor = 0
-            }
-            
-            currentEffects = currentEffects.filter { $0.numberOfTurns > 0 }
-            
-            // Wizard turn
-            
-            let currentEffectsSet = Set(currentEffects)
-            
-            let possibleSpells:[Spell] = [Spell.magicMissile(), Spell.drain(), Spell.shield(), Spell.poison(), Spell.recharge()].filter { currentEffectsSet.contains($0) == false && $0.cost <= wizard.manaPoints }
-            
-            if possibleSpells.count == 0 {
-                wizard.hitPoints = 0
-                break
-            }
-            
-            let spell = possibleSpells.randomItem()!
-            
-            wizard.manaPoints -= spell.cost
-            
-            if spell.name != "Recharge" && spell.name != "Poison" {
-                wizard.applyEffect(spell)
-                boss.applyEffect(spell)
-            }
-            
-            if spell.numberOfTurns > 0 {
-                currentEffects.append(spell)
-            }
-            
-            manaSpent += spell.cost
-            
-            if boss.hitPoints <= 0 {
-                break
-            }
-            
-            // Boss turn
-            
-            for i in 0..<currentEffects.count {
-                wizard.applyEffect(currentEffects[i])
-                boss.applyEffect(currentEffects[i])
-                currentEffects[i].numberOfTurns -= 1
-            }
-            
-            if boss.hitPoints <= 0 {
-                break
-            }
-            
-            let bossAttack = Swift.max(boss.damage - wizard.armor, 1)
-            
-            wizard.hitPoints -= bossAttack
-            
-            if let _ = currentEffects.filter( { $0.numberOfTurns == 0 && $0.name == "Shield" }).first {
-                wizard.armor = 0
-            }
-            
-            currentEffects = currentEffects.filter { $0.numberOfTurns > 0 }
-        }
-        
-        if wizard.hitPoints > 0 {
-            minimumManaSpent = Swift.min(minimumManaSpent, manaSpent)
-        }
+        minimumManaSpent = Swift.min(minimumManaSpent, battle())
+    }
+    
+    return minimumManaSpent
+}
+
+func day22Part2() -> Int {
+    var minimumManaSpent = Int.max
+    
+    for _ in 1...10000 {
+        minimumManaSpent = Swift.min(minimumManaSpent, battle(true))
     }
     
     return minimumManaSpent
